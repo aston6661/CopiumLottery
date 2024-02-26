@@ -1,0 +1,225 @@
+{
+  "version": "1.0.0",
+  "name": "copium_lottery",
+  "instructions": [
+    {
+      "name": "createLotteryMaster",
+      "accounts": [
+        {
+          "name": "lotteryMaster",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "startLottery",
+      "accounts": [
+        {
+          "name": "solotery",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "lotteryMaster",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "ticketPriceSol",
+          "type": "u64"
+        },
+        {
+          "name": "ticketPriceCop",
+          "type": "u64"
+        },
+        {
+          "name": "numPlayers",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "enterLottery",
+      "accounts": [
+        {
+          "name": "solotery",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "from",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "stake",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "winnerPublickey",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "mint",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "authority",
+          "isMut": false,
+          "isSigner": true
+        }
+      ],
+      "args": [
+        {
+          "name": "lotteryId",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "claimPrize",
+      "accounts": [
+        {
+          "name": "solotery",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "winnerPublickey",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "stake",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "stakeLottMaster",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "lotteryId",
+          "type": "u64"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "LotteryMASter",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "bumpOriginal",
+            "type": "u8"
+          },
+          {
+            "name": "manager",
+            "type": "publicKey"
+          },
+          {
+            "name": "lotteryCount",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "SoLotery",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "bumpOriginal",
+            "type": "u8"
+          },
+          {
+            "name": "winnerPubkey",
+            "type": "publicKey"
+          },
+          {
+            "name": "players",
+            "type": {
+              "vec": "publicKey"
+            }
+          },
+          {
+            "name": "winnerSelected",
+            "type": "bool"
+          },
+          {
+            "name": "ticketsSold",
+            "type": "u64"
+          },
+          {
+            "name": "ticketPriceSol",
+            "type": "u64"
+          },
+          {
+            "name": "ticketPriceCop",
+            "type": "u64"
+          },
+          {
+            "name": "numPlayers",
+            "type": "u64"
+          }
+        ]
+      }
+    }
+  ],
+  "metadata": {
+    "address": "J3GAQ7bG9LyddhPDFH9hNQeko9JWhddNx66cRJmDqhKT"
+  }
+}

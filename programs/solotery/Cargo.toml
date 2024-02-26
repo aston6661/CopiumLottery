@@ -1,13 +1,13 @@
 [package]
-name = "solotery"
-version = "1.0.1"
-description = "A simple lotery implemented in the solana blockchain"
+name = "CopiumLottery"
+version = "1.0.0"
+description = "A simple lotery implemented in the solana blockchain for Copium Token"
 edition = "2021"
-authors = ["Mateo Lafalce <mateolafalce@protonmail.com>"]
+authors = ["Duke Sun <dukesun99@icloud.com>"]
 
 [lib]
 crate-type = ["cdylib", "lib"]
-name = "solotery"
+name = "copium_lottery"
 
 [features]
 no-entrypoint = []
@@ -18,4 +18,5 @@ default = []
 
 [dependencies]
 anchor-lang = "0.29.0"
+anchor-spl = "0.29.0"
 oorandom = "11.1.3"
